@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Anime Flix</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       
+  
+
+     <link rel="stylesheet" href="">
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+      label{
+        color: rgb(4, 1, 26);
+        }
+        h1{
+text-align: center;
+color: rgba(255, 255, 255, 255);
+font-family: "Great Vibes", cursive;
+border-radius: 10px;
+line-height: 30px;
+text-shadow: 3px 3px 8px black;
+background-image: url(gachiakuta-season-1-3840x2160-23000.jpg);
+background-color: transparent;
+padding: 20px;
+margin: 20px;
+font-size: 30px;
+
+
+
+        }
+        
+        body{
+            background-image:url(gachiakuta-season-1-3840x2160-23000.jpg);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .icons{
+      display: flex;
+      align-items: center;
+      gap: 25px;
+
+        }
+        .icons i{
+            font-size: 28px;
+            color: white;
+            cursor: pointer;
+
+            background: rgba(255, 0, 0, 0.2);
+            padding: 12px;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+        .icons i:hover{
+            background: red;
+            transform: scale(1.1);
+        }
+        #recherche{
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        
+        }
+        #recherche input{
+            width: 300px;
+            padding: 10px;
+            border-radius: 10px;
+            border: none;
+     
+        }
+        #menu{
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100vh;
+
+            background: rgba(20 , 20, 20, 0.95);
+        
+
+            backdrop-filter: blur(15px);
+            transition: .4s;
+            padding-top: 80px;
+            box-shadow: -5px 0 20px
+            rgba(255, 0, 0, .4);
+
+            z-index: 999;
+        }
+        #menu a{
+            display: block;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            padding: 10px;
+            transition: 0.3s;
+        }
+        #menu a:hover{
+            background:rgba(255, 0, 0, 0.3);
+            padding-left: 35px;
+
+            color: red;
+        }
+        #overlay{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.6);
+            display: none;
+            z-index: 998;
+        }
+    .menu{
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        font-size: 28px;
+        color: white;
+        cursor: pointer;
+        z-index: 1000;
+    }
+    .search{
+        position:absolute;
+        top: 20px;
+        right: 70px;
+        font-size: 28px;
+        color: white;
+        cursor: pointer;
+        z-index: 1000;
+    }
+    .anime-container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap:25px;
+        flex-wrap: wrap;
+        margin-top:60px;
+        padding:20px;
+    }
+    .anime-card{
+        width:260px;
+        background-color: #181818;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 20px rgba(0,0,0,.6);
+        transition:.4s;
+    }
+    .anime-card:hover{
+        transform: translateY(-10px);
+        box-shadow: 0 0 25px rgb(251, 0, 0);
+    }
+    .anime-card img{
+        width: 100%;
+        height: 360px;
+        object-fit: cover;
+
+    }
+    .anime-info{
+        padding: 20px;
+        text-align: center;
+
+    }
+    .anime-info h3{
+        color: white;
+        margin-bottom: 20px;
+    }
+    .anime-info p{
+        color: #bbb;
+        margin-bottom: 20px;
+    }
+    span{
+        color: white;
+    }
+       .watch-btn{
+        display: inline-block;
+        margin-top: 15px;
+        text-decoration: none;
+        background: rgb(137, 8, 8);
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 25px;
+        transition: .3s;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    .watch-btn:hover{
+        background: white;
+        color: rgb(178, 41, 41);
+    }
+    </style>
+    <script src="script.js"></script>
+      </head>
+    <body>
+
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <script src="" async defer></script>
+        <header>
+
+        <h1>Anime Flix fr</h1>     
+        </header>
+          <i class="fa-solid fa-bars menu" onclick="ouvrirMenu()"></i>
+                
+         <i class="fa-solid fa-magnifying-glass search" 
+        onclick="ouvrirRecherche()"></i>
+
+          
+        <div id="recherche">
+            <input type="text" placeholder="Rechercher un animé...">
+        </div>
+        <!-- Fond sombre -->
+         <div id="overlay"
+         onclick="fermerMenu()"></div>
+
+        <!-- Menu -->
+        <div id="menu">
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Anime</a></li>
+                <li><a href="#">Manga</a></li>
+                <li><a href="#">Films</a></li>
+                <li><a href="#">Séries</a></li>
+            </ul>
+        </div>
+        <section class="anime-container">
+       <section class="anime-container">
+
+    <!-- Naruto -->
+    <div class="anime-card">
+        <img src="4423178.jpg" alt="Naruto">
+        <div class="anime-info">
+            <h3>Naruto</h3>
+            <p>Action • Aventure</p>
+            <span>⭐ 9.4</span><br><br>
+            <button class="watch-btn">Regarder maintenant</button>
+        </div>
+    </div>
+
+    <!-- One Piece -->
+    <div class="anime-card">
+        <img src="OIP.webp" alt="One Piece">
+        <div class="anime-info">
+            <h3>One Piece</h3>
+            <p>Aventure • Fantastique • Action</p>
+            <span>⭐ 9.2</span><br><br>
+            <button class="watch-btn">Regarder maintenant</button>
+        </div>
+    </div>
+
+    <!-- Bleach -->
+    <div class="anime-card">
+        <img src="télécharger.webp" alt="Bleach">
+        <div class="anime-info">
+            <h3>Bleach</h3>
+            <p>Action • Fantastique</p>
+            <span>⭐ 8.5</span><br><br>
+            <button class="watch-btn">Regarder maintenant</button>
+        </div>
+    </div>
+
+    <!-- Gachiakuta -->
+    <div class="anime-card">
+        <img src="gachiakuta-season-1-3840x2160-23000.jpg" alt="Gachiakuta">
+        <div class="anime-info">
+            <h3>Gachiakuta</h3>
+            <p>Action • Comédie</p>
+            <span>⭐ 7.9</span><br><br>
+            <button class="watch-btn">Regarder maintenant</button>
+        </div>
+    </div>
+<div class="anime-card">
+        <img src="OIP (1).webp" alt="hunter x hunter">
+        <div class="anime-info">
+            <h3>Hunter x hunter</h3>
+            <p>Action • Aventure</p>
+            <span>⭐ 7.9</span><br><br>
+            <button class="watch-btn">Regarder maintenant</button>
+        </div>
+    </div>
+    <div class="anime-card">
+        <img src="OIP (2).webp" alt="dragon ball ">
+        <div class="anime-info">
+            <h3>Dragon ball</h3>
+            <p>Action • Aventure</p>
+            <span>⭐ 7.9</span><br><br>
+            <button class="watch-btn">Regarder maintenant</button>
+        </div>
+    </div>
+
+</section>
+</section>
+    </body>
+</html>
